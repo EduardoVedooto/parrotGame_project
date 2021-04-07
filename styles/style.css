@@ -1,0 +1,107 @@
+body {
+    font-family: "Roboto";
+    background-color: #EEF9BF;
+}
+
+header{
+    background-color: #5C913B;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1{
+    font-family: 'Dela Gothic One';
+    font-size: 36px;
+    color: #1c2b21;
+}
+
+main .buttons{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .buttons button{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    border: none;
+    background-color: #5C913B;
+    color: #1c2b21;
+    font-size: 32px;
+    font-family: 'Dela Gothic One';
+    
+    transition: width 0.2s, height 0.6s;
+}
+
+main .buttons button:hover{
+    font-weight: bold;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+main .buttons button.start {
+    margin-bottom: 100px;
+}
+
+
+main .rules_content{
+    background-color: rgba(238, 249, 190, 0.5);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+main .rules_content .container_text{
+    background-color: rgba(92, 145, 59, 0.9);
+    width: 50%;
+    max-width: 614px;
+    height: 70%;
+    position: relative;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    color: rgb(43, 43, 43);
+    font-size: 28px;
+    
+}
+
+main .rules_content .container_text .close{
+    position: absolute;
+    bottom: -18px;
+    left: 27%;
+    font-family: 'Dela Gothic One';
+    font-size: 24px;
+    border-radius: 50px;
+    background: #35611a;
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    align-self: center;
+    line-height: 20px;
+    border: none;
+    color: #EEF9BF;
+    
+}
+
+main .rules_content .container_text .close:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px #EEF9BF;
+}
+
+main .show_rules {
+    display: flex;
+}
