@@ -74,9 +74,10 @@ main .rules_content .container_text{
     align-items: center;
     justify-content: center;
     border-radius: 60px;
-    color: rgb(43, 43, 43);
+    color: #1c2b21;
     font-size: 28px;
-    
+    font-family: 'Dela Gothic One';
+    line-height: 40px;
 }
 
 main .rules_content .container_text .close{
@@ -104,10 +105,12 @@ main .rules_content .container_text .close:hover{
 
 main .game{
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 64px);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 0 200px;
 }
 
 main .game .card{
@@ -120,6 +123,7 @@ main .game .card{
     align-items: center;
     justify-content: center;
     transition: box-shadow 0.1s;
+    margin: 20px 20px;
 }
 
 main .game .card:hover{
