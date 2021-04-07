@@ -102,6 +102,58 @@ main .rules_content .container_text .close:hover{
     box-shadow: 0 0 10px #EEF9BF;
 }
 
+main .game{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .game .card{
+    width: 130px;
+    height: 170px;
+    background-color: #A7E9AF;
+    border-radius: 5px;
+    border: 1px solid #99CEA8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.1s;
+}
+
+main .game .card:hover{
+    cursor: pointer;
+    box-shadow: 0 0 16px -4px #5C913B;
+}
+
+main .game .card img{
+    width: 90%;
+    height: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 main .show_rules {
     display: flex;
 }
+
+main .hide_buttons {
+    display: none;
+}
+
