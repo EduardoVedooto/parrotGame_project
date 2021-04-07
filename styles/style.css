@@ -9,21 +9,27 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
 }
 
 header h1{
     font-family: 'Dela Gothic One';
-    font-size: 36px;
+    font-size: 56px;
+    line-height: 64px;
     color: #1c2b21;
 }
 
 main .buttons{
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 64px);
     display: flex;
-    flex-direction: column;
+    
     align-items: center;
     justify-content: center;
+    margin-top: 64px;
 }
 
 main .buttons button{
@@ -47,7 +53,7 @@ main .buttons button:hover{
 }
 
 main .buttons button.start {
-    margin-bottom: 100px;
+    margin-right: 100px;
 }
 
 
@@ -67,17 +73,23 @@ main .rules_content .container_text{
     background-color: rgba(92, 145, 59, 0.9);
     width: 50%;
     max-width: 614px;
-    height: 70%;
+    height: 75%;
     position: relative;
     padding: 0 40px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     border-radius: 60px;
     color: #1c2b21;
-    font-size: 28px;
+    font-size: 18px;
     font-family: 'Dela Gothic One';
     line-height: 40px;
+    text-align: justify;
+}
+
+main .rules_content .container_text h1{
+    margin: 20px 0;
+    color: #EEF9BF;
 }
 
 main .rules_content .container_text .close{
@@ -106,11 +118,12 @@ main .rules_content .container_text .close:hover{
 main .game{
     width: 100vw;
     height: calc(100vh - 64px);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     padding: 0 200px;
+    margin-top: 64px;
 }
 
 main .game .card{
@@ -159,5 +172,80 @@ main .show_rules {
 
 main .hide_buttons {
     display: none;
+}
+
+main .init_game{
+    display: flex;
+}
+
+em {
+    color: #EEF9BF;
+}
+
+@media(max-width: 914px) {
+    header h1 {
+        font-size: 46px;
+    }
+    
+    main .game{
+        padding: 0 100px;
+    }
+
+    main .rules_content .container_text{
+        width: 80%;
+    }
+}
+
+@media(max-width: 614px) {
+    
+    header{
+        height: 78px;
+    }
+
+    header h1 {
+        text-align: center;
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    main .buttons{
+        margin-top: 78px;
+        flex-direction: column;
+        height: calc(100vh - 78px);
+    }
+
+    main .buttons button.start{
+        margin-right: 0;
+        margin-bottom: 100px;
+    }
+
+    main .game{
+        margin-top: 78px;
+        padding: 0 75px;
+    }
+
+    main .rules_content .container_text{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        justify-content: space-around;
+        background-color: rgb(92, 145, 59);
+    }
+
+    main .rules_content .container_text h1{
+        font-size: 32px;
+    }
+
+    main .rules_content .container_text .close{
+        position: unset;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        transition: width 0.5s;
+    }
+
+    main .rules_content .container_text .close:hover{
+        width: 200px;
+    }
 }
 

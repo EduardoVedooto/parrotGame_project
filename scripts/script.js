@@ -28,6 +28,8 @@ function initGame() {
         board.appendChild(card);
     }
 
+    board.classList.add("init_game");
+
 
 }
 
