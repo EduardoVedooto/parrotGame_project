@@ -18,7 +18,6 @@ header{
 header h1{
     font-family: 'Dela Gothic One';
     font-size: 56px;
-    line-height: 64px;
     color: #1c2b21;
 }
 
@@ -129,19 +128,43 @@ main .game{
 main .game .card{
     width: 130px;
     height: 170px;
-    background-color: #A7E9AF;
+    margin: 20px 20px;
+    perspective: 400px;
+    
+}
+
+main .game .card .card_content .card_face:hover{
+    box-shadow: 0 3px 18px -4px rgba(0,0,0,.3);
+}
+
+main .game .card .card_content {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+main .game .card .card_content.isFlipped {
+    transform: rotateY(180deg);
+}
+
+main .game .card .card_content .card_face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     border-radius: 5px;
-    border: 1px solid #99CEA8;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: box-shadow 0.1s;
-    margin: 20px 20px;
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
 }
 
-main .game .card:hover{
-    cursor: pointer;
-    box-shadow: 0 0 16px -4px #5C913B;
+main .game .card .card_content .card_face.back{
+    transform: rotateY(180deg);
 }
 
 main .game .card img{
@@ -221,7 +244,7 @@ em {
 
     main .game{
         margin-top: 78px;
-        padding: 0 75px;
+        padding: 0 25px;
     }
 
     main .rules_content .container_text{
@@ -246,6 +269,11 @@ em {
 
     main .rules_content .container_text .close:hover{
         width: 200px;
+    }
+
+    main .game .card{
+        width: 165px;
+        height: 220px;
     }
 }
 

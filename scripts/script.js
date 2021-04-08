@@ -18,14 +18,8 @@ function initGame() {
     buttons.classList.add("hide_buttons");
 
     for (let i = 0; i < number; i++) {
-        const card = document.createElement("li");
-        const img = document.createElement("img");
+        createCard();
         
-        img.setAttribute("src","./images/front.png");
-        card.className = "card";
-        
-        card.appendChild(img);
-        board.appendChild(card);
     }
 
     board.classList.add("init_game");
@@ -33,3 +27,42 @@ function initGame() {
 
 }
 
+function createCard(){
+    const board = document.querySelector("main .game");
+    const card = document.createElement("li");
+    const cardContent = document.createElement("div");
+    const cardFrontFace = document.createElement("div");
+    const cardBackFace = document.createElement("div");
+    const frontImg = document.createElement("img");
+    const backImg = document.createElement("img");
+
+    card.className = "card";
+    
+    
+    cardContent.className = "card_content";
+    cardContent.setAttribute("onclick", "turnCard(this)");
+    
+    cardFrontFace.className = "card_face";
+    cardFrontFace.classList.add("front");
+    
+    cardBackFace.className = "card_face";
+    cardBackFace.classList.add("back");
+
+    frontImg.setAttribute("src", "./images/front.png");
+    backImg.setAttribute("src", "./images/explodyparrot.gif");
+
+    cardFrontFace.appendChild(frontImg);
+    cardBackFace.appendChild(backImg);
+
+    cardContent.appendChild(cardFrontFace);
+    cardContent.appendChild(cardBackFace);
+
+    card.appendChild(cardContent);
+    
+    board.appendChild(card);
+}
+
+function turnCard(card){
+    
+    card.classList.toggle("isFlipped");
+}
