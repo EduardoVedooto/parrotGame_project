@@ -1,3 +1,15 @@
+const imagesName = ["bobrossparrot.gif", 
+                    "explodyparrot.gif",
+                    "fiestaparrot.gif",
+                    "metalparrot.gif",
+                    "revertitparrot.gif",
+                    "tripletsparrot.gif",
+                    "unicornparrot.gif"
+                    ];
+
+let imagesArray = [];
+
+
 function rulesWindow() {
     const rules = document.querySelector("main .rules_content");
     rules.classList.toggle("show_rules");
@@ -10,24 +22,36 @@ function initGame() {
     const board = document.querySelector("main .game"); // Tela inicial do jogo (sem cartas)
     
     
-    
     do{
         number = Number(prompt("Digite o número de cartas: "));
     } while(number < 4 || number > 14 || number%2 !== 0 || number === null)
 
+
     buttons.classList.add("hide_buttons");
 
-    for (let i = 0; i < number; i++) {
-        createCard();
-        
+    imagesArray = imagesName.sort(() => Math.random() - 0.5);
+
+    for (let i = 7; i > number/2; i--){
+        imagesArray.pop();
     }
 
+    imagesArray = imagesArray.concat(imagesArray);
+    imagesArray = imagesArray.sort(() => Math.random() - 0.5);
+
+    
+
+    for (let i = 0; i < number; i++) {
+        createCard(number/2);    
+    }
+
+
+
     board.classList.add("init_game");
-
-
 }
 
-function createCard(){
+
+// O parâmetro desta função servirá para saber quantos pares de gifs terei que pegar do array "images"
+function createCard(numberOfGIFs){
     const board = document.querySelector("main .game");
     const card = document.createElement("li");
     const cardContent = document.createElement("div");
@@ -35,6 +59,9 @@ function createCard(){
     const cardBackFace = document.createElement("div");
     const frontImg = document.createElement("img");
     const backImg = document.createElement("img");
+    const nameGIF = imagesArray[imagesArray.length - 1];
+    imagesArray.pop();
+    console.log(imagesArray);
 
     card.className = "card";
     
@@ -49,7 +76,8 @@ function createCard(){
     cardBackFace.classList.add("back");
 
     frontImg.setAttribute("src", "./images/front.png");
-    backImg.setAttribute("src", "./images/explodyparrot.gif");
+    
+    backImg.setAttribute("src", `./images/${nameGIF}`);
 
     cardFrontFace.appendChild(frontImg);
     cardBackFace.appendChild(backImg);
