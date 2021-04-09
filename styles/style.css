@@ -284,7 +284,6 @@ main .credits_screen {
     background-color: #1c2b21;
     display: none;
     flex-direction: column;
-    justify-content: space-around;
     padding: 100px 30px;
     z-index: 2;
     align-items: center;
@@ -301,6 +300,7 @@ main .credits_screen h1 {
 main .credits_screen img {
     width: 200px;
     height: 200px;
+    margin: 40px 0;
 }
 
 main .credits_screen p.countdown {
@@ -317,6 +317,7 @@ main .credits_screen button {
     color: #5C913B;
     transition: all 0.5s;
     border: none;
+    margin-top: auto;
 }
 
 main .credits_screen button:focus{
@@ -485,11 +486,12 @@ em {
         flex-direction: row;
         height: 150px;
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
 
     }
     main .end_screen p.question{
-        margin-top: 250px;
+        margin-top: auto;
+        margin-bottom: 20px;
     }
 
     main .end_screen .buttons button{
@@ -515,16 +517,39 @@ em {
         height: 75px;
     }
 
+    main .credits_screen {
+        padding: 30px 10px;
+    }
+
+    main .credits_screen h1 {
+        font-size: 38px;
+    }
+
+    main .credits_screen img {
+        width: 150px;
+        height: 150px;
+        margin: 15px 0;
+    }
+
+    main .credits_screen p.countdown {
+        font-size: 24px;
+    }
+
     main .credits_screen button {
         background-color: #5C913B;
         color: #EEF9BF;
         width: 100px;
         height: 100px;
+        margin: auto 0;
     }
+
 
     main .credits_screen a{
         background-color: #5C913B;
         color: #EEF9BF;
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 10px;
     }
 
 }

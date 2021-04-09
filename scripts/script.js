@@ -193,7 +193,6 @@ function credits_screen() {
 
 function decrementCountdown(){
     const divCounter = document.querySelector("p.countdown");
-    console.log(divCounter);
     divCounter.innerHTML = `Você será redirecionado para a tela principal em: ${countdown} segundos`;
 
     countdown--;
@@ -201,7 +200,6 @@ function decrementCountdown(){
     if(countdown === 0){
         stopCountdown();
     }
-    console.log(countdown);
 }
 
 function stopCountdown(){
