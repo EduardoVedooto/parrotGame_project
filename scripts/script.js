@@ -13,6 +13,8 @@ let card2;
 let seconds = 0;
 let number = 0;
 let idClock;
+let idCountdown;
+let countdown = 9;
 let countCardsFlipped = 0;
 
 function rulesWindow() {
@@ -127,6 +129,7 @@ function turnCard(card){
         }
     }
     
+    
     endGame();
 
 }
@@ -163,8 +166,10 @@ function countSeconds(secs){
 function pairFound(cards){
     cards[0].classList.remove("isFlipped");
     cards[0].classList.add("found");
+    cards[0].removeAttribute("onclick");
     cards[1].classList.remove("isFlipped");
     cards[1].classList.add("found");
+    cards[1].removeAttribute("onclick");
 }
 
 function resetGame() {
@@ -178,4 +183,53 @@ function resetGame() {
     reset.innerHTML = "";
     seconds = 0;
     countCardsFlipped = 0;
+}
+
+function credits_screen() {
+    const screen = document.querySelector("main .credits_screen");
+    screen.classList.add("display_screen");
+    idCountdown = setInterval(decrementCountdown, 1000)
+}
+
+function decrementCountdown(){
+    const divCounter = document.querySelector("p.countdown");
+    console.log(divCounter);
+    divCounter.innerHTML = `Você será redirecionado para a tela principal em: ${countdown} segundos`;
+
+    countdown--;
+    
+    if(countdown === 0){
+        stopCountdown();
+    }
+    console.log(countdown);
+}
+
+function stopCountdown(){
+    setTimeout(home_screen,1000);
+    countdown = 9;
+    clearInterval(idCountdown);
+}
+
+function closeButton() {
+    const divCounter = document.querySelector("p.countdown");
+    divCounter.innerHTML = "Você será redirecionado para a tela principal em: 10 segundos";
+    countdown = 9;
+    clearInterval(idCountdown);
+    home_screen();
+}
+
+function home_screen() {
+    let div = document.querySelector("main .game");
+    div.classList.remove("init_game");
+    div = document.querySelector("main .clock");
+    div.classList.remove("display_clock");
+    div = document.querySelector("main .buttons");
+    div.classList.remove("hide_buttons");
+    div = document.querySelector("main .end_screen");
+    div.classList.remove("display_screen");
+    div = document.querySelector("main .credits_screen");
+    div.classList.remove("display_screen");
+    div = document.querySelector("main p.countdown");
+    div.innerHTML = "Você será redirecionado para a tela principal em: 10 segundos";
+    clearInterval(idClock);
 }
