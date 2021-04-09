@@ -23,11 +23,14 @@ function rulesWindow() {
 }
 
 function initGame() {
+    resetGame();
     const buttons = document.querySelector(".buttons"); // tag que engloba os botões Iniciar e Regras
     const board = document.querySelector("main .game"); // Tela inicial do jogo (sem cartas)
     const clock = document.querySelector("main .clock"); // Relógio que conta segundos
     const secs = document.querySelector("main .clock .secs"); // Div segundos
     
+    
+
     do{
         number = Number(prompt("Digite o número de cartas: "));
     } while(number < 4 || number > 14 || number%2 !== 0 || number === null)
@@ -35,13 +38,21 @@ function initGame() {
 
     buttons.classList.add("hide_buttons");
 
-    imagesArray = imagesName.sort(() => Math.random() - 0.5);
+    // Neste for, é passado para um novo array o nome de todos os gifs e logo após, embaralhar os mesmos
+    for (let i = 0; i < imagesName.length; i++) {
+        imagesArray[i] = imagesName[i];
+    }
+    imagesArray = imagesArray.sort(() => Math.random() - 0.5);
 
+
+    // For utilizado para saber quantos gifs serão utilizados no jogo
     for (let i = 7; i > number/2; i--){
         imagesArray.pop();
     }
 
+    // Utilizado para que o array tenha todos os seus elemento duplicados (par de gifs)
     imagesArray = imagesArray.concat(imagesArray);
+    // Embaralhar novamente o novo array
     imagesArray = imagesArray.sort(() => Math.random() - 0.5);
 
     
@@ -154,4 +165,17 @@ function pairFound(cards){
     cards[0].classList.add("found");
     cards[1].classList.remove("isFlipped");
     cards[1].classList.add("found");
+}
+
+function resetGame() {
+    let reset = document.querySelector("main .end_screen p.time");
+    reset.innerHTML = "Tempo:  ";
+    reset = document.querySelector("main .end_screen p.cardsFlipped");
+    reset.innerHTML = "Movimentos:  ";
+    reset = document.querySelector("main .end_screen");
+    reset.classList.remove("display_screen");
+    reset = document.querySelector("main .game");
+    reset.innerHTML = "";
+    seconds = 0;
+    countCardsFlipped = 0;
 }

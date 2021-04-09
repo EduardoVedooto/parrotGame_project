@@ -187,10 +187,10 @@ main .game .card img{
 
 .clock{
     position: absolute;
-    top: 0;
+    top: 60px;
     right: 10px;
     font-family: 'Dela Gothic One';
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -199,7 +199,7 @@ main .game .card img{
     margin: 10px 0;
 }
 
-main .clock .secs{
+.clock .secs{
     width: 100%;
     height: 50px;
     border-radius: 50%;
@@ -210,6 +210,10 @@ main .clock .secs{
     font-family: 'Dela Gothic One';
     overflow: hidden;
     transition: all .5s;
+}
+
+main div.clock.display_clock{
+    display: flex;
 }
 
 main .end_screen{
@@ -411,6 +415,49 @@ em {
     main .game .card{
         width: 165px;
         height: 220px;
+    }
+
+    main .end_screen{
+        width: 100%;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    main .end_screen h1 {
+        font-size: 48px;
+        margin: 40px 0;
+    }
+    
+    main .end_screen p{
+        font-size: 28px;
+        width: inherit;
+    }
+
+    main .end_screen p.cardsFlipped{
+        margin-top: 20px;
+    }
+
+    main .end_screen .buttons{
+        flex-direction: row;
+        height: 150px;
+        width: 100%;
+
+    }
+    main .end_screen p.question{
+        margin-top: 250px;
+    }
+
+    main .end_screen .buttons button{
+        background-color: #5C913B;
+        color: #1c2b21;
+        height: 150px;
+        width: 150px;
+    }
+
+    main .end_screen .buttons button.no{
+        background-color: #1c2b21;
+        color: #5C913B;
+        border: 3px solid #5C913B;
     }
 }
 
