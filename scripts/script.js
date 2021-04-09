@@ -11,6 +11,9 @@ let imagesArray = [];
 let card1;
 let card2;
 let seconds = 0;
+let number = 0;
+let idClock;
+let countCardsFlipped = 0;
 
 function rulesWindow() {
     const rules = document.querySelector("main .rules_content");
@@ -20,8 +23,6 @@ function rulesWindow() {
 }
 
 function initGame() {
-    
-    let number = 0; // N° de cartas que o jogador escolher
     const buttons = document.querySelector(".buttons"); // tag que engloba os botões Iniciar e Regras
     const board = document.querySelector("main .game"); // Tela inicial do jogo (sem cartas)
     const clock = document.querySelector("main .clock"); // Relógio que conta segundos
@@ -51,13 +52,13 @@ function initGame() {
 
     secs.innerHTML = seconds;
     clock.classList.add("display_clock");
-    setInterval(countSeconds, 1000, secs);
+    idClock = setInterval(countSeconds, 1000, secs);
 
     board.classList.add("init_game");
 }
 
 
-// O parâmetro desta função servirá para saber quantos pares de gifs terei que pegar do array "images"
+
 function createCard(){
     const board = document.querySelector("main .game");
     const card = document.createElement("li");
@@ -99,6 +100,8 @@ function createCard(){
 
 function turnCard(card){
     
+    countCardsFlipped++;
+
     card.classList.add("isFlipped")
     
     
@@ -112,11 +115,28 @@ function turnCard(card){
             pairFound(cards);
         }
     }
-
-    console.log(cards);
-    console.log(card.children[1].children[0].getAttribute("src"));
-
     
+    endGame();
+
+}
+
+function endGame() {
+    const cardsFound = document.querySelectorAll(".found");
+    
+    if(cardsFound.length === number) {
+        clearInterval(idClock);
+        setTimeout(showEndGame,2000);
+    }
+
+}
+
+function showEndGame() {
+    const endScreen = document.querySelector("main .end_screen");
+    endScreen.classList.add("display_screen");
+    const time = document.querySelector("main .end_screen .time");
+    time.innerHTML += seconds-1 + " segundos";
+    const cardsFlipped = document.querySelector("main .end_screen .cardsFlipped");
+    cardsFlipped.innerHTML += countCardsFlipped + " cartas";
 }
 
 function turnBackCard(cards){

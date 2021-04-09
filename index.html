@@ -15,6 +15,7 @@
         <h1 class="title">PARROT CARD GAME</h1>
     </header>
     <main>
+        
         <div class="buttons">
             <button class="start" onclick="initGame()">Iniciar</button>
             <button class="rules" onclick="rulesWindow()">Regras</button>
@@ -44,6 +45,16 @@
             </div>
         </div>
 
+        <div class="end_screen">
+            <h1>Parabéns, você venceu!</h1>
+            <p class="time">Tempo de jogo:  </p>
+            <p class="cardsFlipped">Número de cartas viradas:  </p>
+            <p class="question">deseja jogar novamente?</p>
+            <div class="buttons">
+                <button class="no">Não</button>
+                <button class="yes" onclick="initGame()">Sim</button>
+            </div>
+        </div>
         
     </main>
     <script src="./scripts/script.js"></script>

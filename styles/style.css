@@ -156,6 +156,11 @@ main .game .card .card_content.isFlipped {
 
 main .game .card .card_content.found{
     transform: rotateY(180deg);
+    cursor: default;
+}
+
+main .game .card .card_content.found .card_face:hover{
+    box-shadow: 0;
 }
 
 main .game .card .card_content .card_face {
@@ -207,6 +212,63 @@ main .clock .secs{
     transition: all .5s;
 }
 
+main .end_screen{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1c2b21;
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+main .end_screen h1{
+    font-size: 72px;
+    margin: 100px 0;
+    color: #5C913B;
+    font-family: 'Dela Gothic One';
+}
+
+main .end_screen p{
+    font-family: 'Dela Gothic One';
+    font-size: 42px;
+    color: #EEF9BF;
+}
+
+main .end_screen p.cardsFlipped{
+    margin-top: 10px;
+}
+
+main .end_screen p.question{
+    margin-top: 200px;
+}
+
+main .end_screen .buttons{
+    justify-content: space-evenly;
+    margin: 0;
+}
+
+main .end_screen .buttons button{
+    background-color: #1c2b21;
+    color: #5C913B;
+    transition: width 1s, height .5s, box-shadow 0.2s, background-color 0.5s;
+    width: 100px;
+    height: 50px;
+}
+
+main .end_screen .buttons button:hover{
+    background-color: #5C913B;
+    color: #1c2b21;
+    font-weight: normal;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 18px -4px #EEF9BF;
+}
 
 
 
@@ -219,6 +281,10 @@ main .clock .secs{
 
 
 
+
+main .end_screen.display_screen{
+    display: flex;
+}
 
 
 header.hide_header {
@@ -240,6 +306,31 @@ main .init_game{
 em {
     color: #EEF9BF;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media(max-width: 914px) {
     header h1 {
